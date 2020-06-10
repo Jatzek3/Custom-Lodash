@@ -1,0 +1,23 @@
+{
+  "name": "jatzek3-RSSPL2020Q1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "custom-lodash.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rolling-scopes-school/jatzek3-RSSPL2020Q1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rolling-scopes-school/jatzek3-RSSPL2020Q1/issues"
+  },
+  "homepage": "https://github.com/rolling-scopes-school/jatzek3-RSSPL2020Q1#readme",
+  "devDependencies": {
+    "jest": "^26.0.1"
+  }
+}
