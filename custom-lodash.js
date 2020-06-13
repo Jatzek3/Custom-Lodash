@@ -105,10 +105,37 @@ take : function (arr, num) {
         this.addToArray(newArr, arr[i])
     }
     return newArr;
+},
+    /**
+     * Iterates over elements of `collection`, returning an array of all elements
+     * `predicate` returns truthy for. The predicate is invoked with three
+     * arguments: (value, index|key, collection).
+     * @param {Array|Object} collection The collection to iterate over.
+     * @param {Function} [predicate=_.identity] The function invoked per iteration.
+     * @returns {Array} Returns the new filtered array.
+     * */
+filter : function(arr, func){
+    let newArr = [];
+    for(let i = 0; arr.length > i; i += 1){
+        if (func(arr[i])){
+            this.addToArray(newArr, arr[i])
+        }
+    }
+    return newArr;
+},
+find : function(arr, func){
+    counter = 0
+    while (arr.length > counter){
+        if (func(arr[counter])){
+            return arr[counter];
+        }
+        counter += 1;
+    }
 }
 
 
 }
+// console.log(CustomLodash.filter([1,2,3,4,5,6], (a) => a % 2 == 0))
 // console.log(CustomLodash.take([1,2,3,4,5,6], 3))
 // console.log(CustomLodash.dropWhile([1,2,3,4,5,6], (a)=> a < 4))
 
