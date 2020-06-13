@@ -77,9 +77,40 @@ drop : function(arr, num){
     }
     return newArr;
 },
-}
-console.log(CustomLodash.chunk([1,2,3,4,5,6,7],3))
+/**
+ * Creates a slice of `array` excluding elements dropped from the beginning.
+ * Elements are dropped until `predicate` returns falsey. The predicate is
+ * invoked with three arguments: (value, index, array).
+ * @param {Array} array The array to query.
+ * @param {Function} [predicate=_.identity] The function invoked per iteration.
+ * @returns {Array} Returns the slice of `array`.*/
 
+dropWhile : function(arr, func){
+    let newArr = [];
+    for (let i=0; arr.length > i; i += 1){
+        if (func(arr[i])){
+            this.addToArray(newArr, arr[i])
+        }
+    return newArr;
+}},
+/**
+ * Creates a slice of `array` with `n` elements taken from the beginning.
+ * @param {Array} array The array to query.
+ * @param {number} [n=1] The number of elements to take.
+ * @returns {Array} Returns the slice of `array`.
+ * */
+take : function (arr, num) {
+    let newArr =[];
+    for (let i=0; i < num; i += 1){
+        this.addToArray(newArr, arr[i])
+    }
+    return newArr;
+}
+
+
+}
+// console.log(CustomLodash.take([1,2,3,4,5,6], 3))
+// console.log(CustomLodash.dropWhile([1,2,3,4,5,6], (a)=> a < 4))
 
 module.exports = { 
     CustomLodash, 
