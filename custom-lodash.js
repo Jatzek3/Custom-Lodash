@@ -214,13 +214,147 @@ zip : function(...arr){
     }
     return newArr;
 
-}
+},
+// <----------------------------------------------------------------------------->
+// Objects
+setProperty : function(obj, propertyName, propertyValue){
+    return obj[propertyName] = propertyValue;
+},
+ /**
+     * Merges own and inherited enumerable string keyed properties of 
+     * source objects into the destination object. 
+     * 
+     * @param {Object} object The destination object.
+     * @param {...Object} sources The source objects.
+     * @returns {Object} Returns `object`.
+     **/
+// merge : function(obj1, obj2){
+//     let obj3 = {};
+//     for (let attrname in obj1) { obj3[attrname] = obj1[attrname]; }
+//     for (let attrname in obj2) { obj3[attrname] = obj2[attrname]; }
+//     return obj3;
+// }
+
+    /**this method creates an object composed of the
+     * own and inherited enumerable property paths of `object` that are not omitted.
+     * @param {Object} object The source object.
+     * @param {...(string|string[])} [paths] The property paths to omit.
+     * @returns {Object} Returns the new object.
+     **/
+
+omit : function(obj, stringOrArrOfStrings){
+    let newObj = {};
+    let paths = stringOrArrOfStrings;
+    for (i in obj){
+        let keyNotInPaths = true;
+        for (let j = 0; j < paths.length; j+= 1){
+                if (paths[j] == i){
+                    keyNotInPaths = false
+                }
+
+            } 
+        if(keyNotInPaths){
+            this.setProperty(newObj, i, obj[i])
+        }
+    }   
+    return newObj;
+},
+
+    /**
+     * this method creates an object composed of
+     * the own and inherited enumerable string keyed properties of `object` that
+     * `predicate` doesn't return truthy for. The predicate is invoked with two
+     * arguments: (value, key).
+
+     * @param {Object} object The source object.
+     * @param {Function} [predicate=_.identity] The function invoked per property.
+     * @returns {Object} Returns the new object.
+    **/
+omitBy :function(obj, func){
+    let newObj = {};
+    for (i in obj){
+        let isProperValue = true;
+        if (!func(obj)){
+            isProperValue = false;
+        }
+        if (isProperValue = true){
+            this.setProperty(newObj, i, obj[i])
+        };
+    }
+    return newObj;
+},
+    /**
+     * Creates an object composed of the picked `object` properties.
+     * @param {Object} object The source object.
+     * @param {...(string|string[])} [paths] The property paths to pick.
+     * @returns {Object} Returns the new object.
+    **/
+pick : function(obj,stringOrArrOfStrings){
+    let newObj = {};
+    let paths = stringOrArrOfStrings;
+    for (i in obj){
+        let keyInPaths = false;
+        for (let j = 0; j < paths.length; j+= 1){
+                if (paths[j] == i){
+                    keyInPaths = true;
+                }
+
+            } 
+        if(keyInPaths){
+            this.setProperty(newObj, i, obj[i])
+        }
+    }   
+    return newObj;
+},
+
+    /**
+     * Creates an object composed of the `object` properties `predicate` returns
+     * truthy for. The predicate is invoked with two arguments: (value, key).
+     * @param {Object} object The source object.
+     * @param {Function} [predicate=_.identity] The function invoked per property.
+     * @returns {Object} Returns the new object.
+     **/
+pickBy : function(obj, func){
+    let newObj = {};
+    for (i in obj){
+        let isProperValue = true;
+        if (func(obj)){
+            isProperValue = false;
+        }
+        if (isProperValue = true){
+            this.setProperty(newObj, i, obj[i])
+        };
+    }
+    return newObj;
+},
+
+toPairs:function(obj){
+    let newArr = [];
+    let indexOfArr = 0;
+    for (i in obj){
+        this.addToArray(newArr, [])
+        if (i && typeof obj[i] !== undefined){
+            this.addToArray(newArr[indexOfArr], i);
+            this.addToArray(newArr[indexOfArr], Number(obj[i]));
+            indexOfArr += 1;
+        }
+
+    }
+    return newArr;
+},
 
 }
-// console.log(CustomLodash.filter([1,2,3,4,5,6], (a) => a % 2 == 0))
-// console.log(CustomLodash.take([1,2,3,4,5,6], 3))
-// console.log(CustomLodash.dropWhile([1,2,3,4,5,6], (a)=> a < 4))
-console.log(CustomLodash.zip([2,4,6], ['A', 'B', 'C'], [true, false, true]))
+// Test for merge
+// var object = {
+//     'a': [{ 'b': 2 }, { 'd': 4 }]
+//   };
+   
+//   var other = {
+//     'a': [{ 'c': 3 }, { 'e': 5 }]
+//   };
+//   console.log(CustomLodash.merge(object, other))
+
+
 module.exports = { 
-    CustomLodash, 
+     CustomLodash, 
 };
