@@ -282,7 +282,8 @@ const CustomLodash = {
       if (!func(obj)) {
         isProperValue = false;
       }
-      if (isProperValue === true) {
+      // eslint-disable-next-line no-cond-assign
+      if (isProperValue = true) {
         this.setProperty(newObj, i, obj[i]);
       }
     }
@@ -350,8 +351,6 @@ const CustomLodash = {
   },
 
 };
-
-console.log(CustomLodash.omitBy({ a: 1, b: '2', c: 3 }, (a) => typeof a === 'number'));
 
 module.exports = {
   CustomLodash,
