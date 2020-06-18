@@ -2,7 +2,6 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-continue */
-/* eslint-disable consistent-return */
 /* eslint-disable no-param-reassign */
 
 const CustomLodash = {
@@ -46,6 +45,7 @@ const CustomLodash = {
         counter += 1;
       }
     }
+    return wholeArray;
   },
 
   /**
@@ -119,6 +119,7 @@ const CustomLodash = {
     }
     return newArr;
   },
+
   /**
      * Iterates over elements of `collection`, returning an array of all elements
      * `predicate` returns truthy for. The predicate is invoked with three
@@ -137,6 +138,7 @@ const CustomLodash = {
     }
     return newArr;
   },
+
   /**
      * Iterates over elements of `collection`, returning the first element
      * `predicate` returns truthy for. The predicate is invoked with three
@@ -155,6 +157,7 @@ const CustomLodash = {
       }
       counter += 1;
     }
+    return arr;
   },
 
   /**
@@ -205,6 +208,7 @@ const CustomLodash = {
      * @param {...Array} [arrays] The arrays to process.
      * @returns {Array} Returns the new array of grouped elements.
      */
+
   zip(...arr) {
     const newArr = [];
     const allArrays = arr;
@@ -274,6 +278,7 @@ const CustomLodash = {
      * @param {Function} [predicate=_.identity] The function invoked per property.
      * @returns {Object} Returns the new object.
     * */
+
   omitBy(obj, func) {
     const newObj = {};
     let i;
@@ -289,12 +294,14 @@ const CustomLodash = {
     }
     return newObj;
   },
+
   /**
      * Creates an object composed of the picked `object` properties.
      * @param {Object} object The source object.
      * @param {...(string|string[])} [paths] The property paths to pick.
      * @returns {Object} Returns the new object.
     * */
+
   pick(obj, stringOrArrOfStrings) {
     const newObj = {};
     const paths = stringOrArrOfStrings;
@@ -320,6 +327,7 @@ const CustomLodash = {
      * @param {Function} [predicate=_.identity] The function invoked per property.
      * @returns {Object} Returns the new object.
      * */
+
   pickBy(obj, func) {
     const newObj = {};
     let i;
@@ -334,6 +342,13 @@ const CustomLodash = {
     }
     return newObj;
   },
+  /**
+     * Creates an array of own enumerable string keyed-value pairs for `object`
+     * which can be consumed by `_.fromPairs`. If `object` is a map or set, its
+     * entries are returned.
+     * @param {Object} object The object to query.
+     * @returns {Array} Returns the key-value pairs.
+     * */
 
   toPairs(obj) {
     const newArr = [];

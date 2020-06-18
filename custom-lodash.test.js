@@ -15,6 +15,12 @@ test('split an array in to parts of given length',
       .toStrictEqual([[1, 2, 3], [4]]);
   });
 
+test('test if chunk is bigger then array',
+  () => {
+    expect(_.chunk([1, 2, 3], 4))
+      .toStrictEqual([1, 2, 3]);
+  });
+
 test('Creates an array with all falsey values removed. The values `false`, `null`',
   () => {
     expect(_.compact([0, 1, 2, 3, 4, null]))
