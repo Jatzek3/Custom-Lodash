@@ -1,6 +1,37 @@
-# Custom-Lodash
-Task for creating custom library of functions, and cover it with Unit tests
+Custom Lodash
 
-Description of the task in the link below.
+Your task is to implement 'custom' version of the lodash library following next requirements:
 
-https://github.com/rolling-scopes-school/tasks/blob/master/tasks/custom-lodash(unit%20%20tests).md
+ - Usage of Array.prototype.* or Object.prototype.*` is strictly forbidden.
+ - You can create your own additional service functions (if needed).
+ - You should use ES6+ features (any feature which supported by latest stable Chrome).
+ - Lodash chain is out of scope
+
+And cover your code by unit tests following next requirements:
+
+- You should use Jest for the current task
+- You shoud follow TDD (Test-driven development)
+- The code coverage should be at least 80% (branches and functions)
+
+Methods to implement:
+Arrays:
+
+    chunk
+    compact
+    drop
+    dropWhile
+    take
+    filter
+    find
+    includes
+    map
+    zip
+
+Objects:
+
+    merge
+    omit
+    omitBy
+    pick
+    pickBy
+    toPairs
