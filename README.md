@@ -1,3 +1,5 @@
+Interesting Code -> https://github.com/Jatzek3/Custom-Lodash/blob/custom-lodash/custom-lodash.js
+
 Custom Lodash
 
 Your task is to implement 'custom' version of the lodash library following next requirements:
